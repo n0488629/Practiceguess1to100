@@ -10,31 +10,43 @@ namespace Practice
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please guess the number between 1 and 100");
-            int guess = Convert.ToInt32(Console.ReadLine());
-            Random random = new Random();
-            int randomNumber = random.Next(1, 101);
-            int guesses = 1;
+                // Prompt user for their guess
+                Console.WriteLine("Please guess the number between 1 and 100");
+                // Convert users input to a variable integer
+                int guess = Convert.ToInt32(Console.ReadLine());
+                // Create random seed
+                Random random = new Random();
+                // Initialize randomNumber variable for a number between 1 and 100
+                int randomNumber = random.Next(1, 101);
+                // intialize guess increment counter
+                int guesses = 1;
 
-            while (guess != randomNumber)
+            while (guess != randomNumber) // While loop while the guess is incorrect
             {
-                if (guess < randomNumber)
-                {
-                    Console.WriteLine("Please guess a higher number");
-                    guess = Convert.ToInt32(Console.ReadLine());
-                    guesses++;
-                }
-                else if (guess > randomNumber) 
-                {
-                
-                    Console.WriteLine("Please guess a lower number");
-                    guess = Convert.ToInt32(Console.ReadLine());
-                    guesses++;
-                }
+                    if (guess < randomNumber) // If guess is less than randomly generated number
+                    {
+                        // Prompt user for higher number
+                        Console.WriteLine("Please guess a higher number");
+                        // convert users input and replace old guess with new guess
+                        guess = Convert.ToInt32(Console.ReadLine());
+                        // increment guesses counter
+                        guesses++;
+                    }
+                    else if (guess > randomNumber) // If guess is higher than randomly generated number
+                    {
+                        // Prompt user to enter a lower number
+                        Console.WriteLine("Please guess a lower number");
+                        // convert users input and replace old guess with new guess
+                        guess = Convert.ToInt32(Console.ReadLine());
+                        // increment guesses counter
+                        guesses++;
+                    }
 
-            }
-            Console.WriteLine(guess + " was the correct number, it took you " + guesses + " guesses.");
-            Console.ReadLine();
+}
+// Show correct guess and how many guesses it took
+Console.WriteLine(guess + " was the correct number, it took you " + guesses + " guesses.");
+// Pause screen for user
+Console.ReadLine();
         }
     }
 }
